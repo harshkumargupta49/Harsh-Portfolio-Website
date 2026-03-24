@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Kumar Gupta | Professional Portfolio</title>
+
+    <style>
+        /* 
+        ========================================
+        CSS Reset and Variable System
+        ========================================
+        */
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #111827;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* 
+        ========================================
+        Navbar Styling
+        ========================================
+        */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 1rem 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1f2937;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #4338ca;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: 0.2s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4338ca;
+            transition: 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4338ca;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* 
+        ========================================
+        Hero Section
+        ========================================
+        */
+        .hero {
+            padding: 8rem 10% 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            min-height: 80vh;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-text h1 span {
+            display: block;
+            color: #4338ca;
+            background: linear-gradient(90deg, #4338ca, #db2777);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #4338ca;
+            color: white;
+            box-shadow: 0 4px 6px rgba(67, 56, 202, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #3730a3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(67, 56, 202, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid #4338ca;
+            color: #4338ca;
+        }
+
+        .btn-outline:hover {
+            background-color: #4338ca;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #4338ca, #db2777);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        /* 
+        ========================================
+        Section Styling
+        ========================================
+        */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .underline {
+            width: 50px;
+            height: 4px;
+            background: #4338ca;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* 
+        ========================================
+        About Section
+        ========================================
+        */
+        .about-content {
+            display: flex;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+
+        .about-entry {
+            flex: 1;
+        }
+
+        .about-entry h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #4338ca;
+            font-weight: 700;
+        }
+
+        .about-entry p {
+            margin-bottom: 1.25rem;
+            color: #374151;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 0.75rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            transition: 0.2s ease;
+            border: 1px solid #e5e7eb;
+            color: #4b5563;
+        }
+
+        .skill-item:hover {
+            border-color: #4338ca;
+            color: #4338ca;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 
+        ========================================
+        Projects Section
+        ========================================
+        */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            border: 1px solid #f3f4f6;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 220px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: #4338ca;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .project-links a:hover {
+            color: #db2777;
+        }
+
+        /* 
+        ========================================
+        Contact Section
+        ========================================
+        */
+        #contact {
+            background-color: #111827;
+            color: white;
+        }
+
+        #contact .section-header h2 {
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #9ca3af;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            color: white;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4338ca;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.85rem;
+            background-color: #4338ca;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #3730a3;
+            transform: translateY(-2px);
+        }
+
+        /* 
+        ========================================
+        Footer Styling
+        ========================================
+        */
+        footer {
+            padding: 3rem 10% 1.5rem;
+            background-color: #030712;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-social {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-social a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1f2937;
+        }
+
+        /* 
+        ========================================
+        Responsive Design (Mobile Friendly)
+        ========================================
+        */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2.5rem;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem 5%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .image-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                padding: 1.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <a href="#" class="logo">Harsh<span>Portfolio</span></a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main id="home">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hi, I'm Harsh Kumar Gupta <span>Web Developer</span></h1>
+                <p>I am currently pursuing a Diploma in Computer Engineering from Government Polytechnic Khutri, Bokaro.
+                    I have basic knowledge of web development and a strong interest in the computer field. I enjoy
+                    learning new technologies and improving my skills continuously.</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn btn-primary">Check My Work</a>
+                    <a href="#" class="btn btn-outline" download>Download CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <!-- Your Professional Profile Image -->
+                    <img src="profile.jpg" alt="Harsh Kumar Gupta - Professional Profile">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-entry">
+                    <h3>My Story</h3>
+                    <p>Hello! I am a passionate Computer Engineering student currently pursuing my diploma from
+                        <strong>Government Polytechnic Khutri, Bokaro</strong>. I have a basic understanding of web
+                        development and a strong interest in the computer field.
+                    </p>
+                    <p>I enjoy learning new technologies and continuously improving my technical skills. I am especially
+                        interested in exploring different areas of computer science and building practical projects that
+                        enhance my knowledge.</p>
+                </div>
+                <div class="about-entry">
+                    <h3>Goals & Education</h3>
+                    <p>My goal is to build a successful career in the IT industry. After completing my diploma, I plan
+                        to continue my studies from <strong>B.Tech after diploma</strong> in Computer Engineering to
+                        gain deeper knowledge and advance my skills in the field.</p>
+
+                    <h3>Skills</h3>
+
+                    <div class="skills-grid">
+                        <div class="skill-item">HTML</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Ruby</div>
+                        <div class="skill-item">Flexbox</div>
+                        <div class="skill-item">Grid</div>
+                        <div class="skill-item">Responsiveness</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="project-grid">
+                <!-- Single Featured Project -->
+                <article class="project-card">
+                    <div class="project-img">
+                        <img src="college project.png" alt="College Attendance System">
+                    </div>
+                    <div class="project-info">
+                        <h4>Live Attendance System Website for College</h4>
+                        <p>A specialized attendance tracking solution that allows teachers to record student presence in
+                            real-time. It includes automated report generation and an easy-to-use dashboard for college
+                            administration.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/harshkumargupta49/Collage-Website-Gpkhutri"
+                                target="_blank">Github &#8599;</a>
+                            <a href="https://gpkhutrinew.vercel.app" target="_blank">Live Demo &#8599;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-container">
+                <form action="#">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Area -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://github.com/harshkumargupta49" target="_blank">GitHub</a>
+            <a href="linkedin.com/in/harsh-kumar-gupta-b45716372">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; Harsh Kumar Gupta Portfolio. Created with passion for the web.</p>
+    </footer>
+
+</body>
+
+</html>
